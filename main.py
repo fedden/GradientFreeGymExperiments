@@ -106,7 +106,7 @@ if do_continue:
             os.makedirs(experiment_directory)
 
         if args['load_from_folder'] is not '':
-            experiment_data_path = os.path.join(os.path.join(args['load_from_folder'], "experiment_data.json")
+            experiment_data_path = os.path.join(os.path.join(args['load_from_folder'], "experiment_data.json"))
             with open(experiment_data_path) as json_data:
                 experiment_data = json.load(json_data)
             begin = experiment_data['iteration']
