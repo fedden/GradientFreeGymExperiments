@@ -110,7 +110,7 @@ if do_continue:
             with open(experiment_data_path) as json_data:
                 experiment_data = json.load(json_data)
             begin = experiment_data['iteration']
-            experiment_fitnesses = experiment_data['scores']
+            experiment_fitnesses = np.array(experiment_data['scores'])
         else:
             experiment_data = {}
             begin = 0
