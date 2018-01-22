@@ -78,14 +78,14 @@ if do_continue:
     for experiment in range(args['amount_experiments']):
 
         if args['load_from_folder'] is not '':
-            rdm_population = np.load(os.path.join(args['load_from_folder'], 'rdm_population'))
-            de_population = np.load(os.path.join(args['load_from_folder'], 'de_population'))
-            ga_population = np.load(os.path.join(args['load_from_folder'], 'dfo_population'))
-            dfo_population = np.load(os.path.join(args['load_from_folder'], 'ga_population'))
-            hybrid_1_population = np.load(os.path.join(args['load_from_folder'], 'hybrid_1_population'))
-            hybrid_2_population = np.load(os.path.join(args['load_from_folder'], 'hybrid_2_population'))
-            hybrid_3_population = np.load(os.path.join(args['load_from_folder'], 'hybrid_3_population'))
-            hybrid_4_population = np.load(os.path.join(args['load_from_folder'], 'hybrid_4_population'))
+            rdm_population = np.load(os.path.join(args['load_from_folder'], 'rdm_population.npy'))
+            de_population = np.load(os.path.join(args['load_from_folder'], 'de_population.npy'))
+            ga_population = np.load(os.path.join(args['load_from_folder'], 'dfo_population.npy'))
+            dfo_population = np.load(os.path.join(args['load_from_folder'], 'ga_population.npy'))
+            hybrid_1_population = np.load(os.path.join(args['load_from_folder'], 'hybrid_1_population.npy'))
+            hybrid_2_population = np.load(os.path.join(args['load_from_folder'], 'hybrid_2_population.npy'))
+            hybrid_3_population = np.load(os.path.join(args['load_from_folder'], 'hybrid_3_population.npy'))
+            hybrid_4_population = np.load(os.path.join(args['load_from_folder'], 'hybrid_4_population.npy'))
         else:
             population = np.random.normal(size=population_shape,
                                           loc=args['mean'],
