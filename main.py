@@ -116,7 +116,7 @@ if do_continue:
             begin = 0
             start_fitnesses = simulator.get_fitnesses(population)
             start_fitness = np.amin(start_fitnesses)
-            experiment_fitnesses = [np.array([start_fitness for _ in range(len(contenders))])]
+            experiment_fitnesses = [[start_fitness for _ in range(len(contenders)))]]
 
         end = args['rounds_optimisation']
         for iteration in range(begin, end):
@@ -153,7 +153,7 @@ if do_continue:
                 optimise_hybrid(hybrid_4_population, args['mean'], args['deviation'], simulator, update_method=4)
             print("completed hy4        ", end="\r")
 
-            scores = np.array([
+            scores = [
                 rdm_best_fitness,
                 de_best_fitness,
                 dfo_best_fitness,
@@ -162,12 +162,12 @@ if do_continue:
                 hybrid_2_best_fitness,
                 hybrid_3_best_fitness,
                 hybrid_4_best_fitness
-            ])
+            ]
 
             experiment_fitnesses.append(scores)
 
             experiment_data['iteration'] = iteration
-            experiment_data['scores'] = [e.tolist() for e in experiment_fitnesses]
+            experiment_data['scores'] = experiment_fitnesses
             experiment_data_save_path = os.path.join(experiment_directory, "experiment_data.json")
             with open(experiment_data_save_path, 'w') as fp:
                 json.dump(experiment_data, fp)
@@ -180,7 +180,8 @@ if do_continue:
             np.save(os.path.join(experiment_directory, 'hybrid_3_population'), hybrid_3_population)
             np.save(os.path.join(experiment_directory, 'hybrid_4_population'), hybrid_4_population)
 
-            best_indices = np.where(scores == scores.min())[0].tolist()
+            scores = np.array(scores)
+            best_indices = np.where(scores == scores.min())[0]
             best_contenders = [contenders[index] for index in best_indices]
 
             amount_done = int((iteration + 1) / args['rounds_optimisation'] * 100)
